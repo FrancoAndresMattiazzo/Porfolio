@@ -1,4 +1,4 @@
-<?php include 'conexion.php'; ?>
+<?php include 'conexion_remnota.php'; ?>
 <?php $conexion = new conexion();
  $sql = "SELECT * FROM `proyectos`";
  $datos = $conexion->consultar($sql);
@@ -354,7 +354,7 @@
                                 <div class="mb-3">
                                     <input type="text" class="form-control bg-nav2 text-success custom-input" id="name" placeholder="Nombre" required>
                                     <br>
-                                    <input type="email" class="form-control bg-nav2 text-success custom-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+                                    <input type="email" class="form-control bg-nav2 text-success custom-input" id="email1" aria-describedby="emailHelp" placeholder="Email" required>
                                     <br>
                                     <div id="emailHelp" class="form-text text-white-50">Nunca compartiremos su correo electrónico con nadie más.</div>
                                 </div>

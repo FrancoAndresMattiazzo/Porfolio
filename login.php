@@ -3,7 +3,7 @@ ob_start();
 session_start();
 
 # Importar el archivo de conexión
-require 'conexion.php';
+require 'conexion_remota.php';
 
 if ($_POST) {
     # Crear una instancia de la clase Conexion
