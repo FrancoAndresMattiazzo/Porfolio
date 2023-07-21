@@ -1,7 +1,5 @@
-<?php include 'conexion_remnota.php'; ?>
+<?php include 'conexion_remota.php'; ?>
 <?php $conexion = new conexion();
- $sql = "SELECT * FROM `proyectos`";
- $datos = $conexion->consultar($sql);
  $proyectos= $conexion->consultar("SELECT * FROM `proyectos`");
  $tecnologias= $conexion->consultar("SELECT * FROM `tecnologias`");
  $estudios = $conexion->consultar("SELECT * FROM `estudios` ORDER BY `ano` DESC");
@@ -14,8 +12,9 @@
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-       <title>Portafolio</title>
-     
+       <title>Franco Mattiazzo</title>
+       <meta name="description" content="Desarrollador Web Full Stack.">
+       <link rel="icon" href="img/favicon.ico" type="image/x-icon">
        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Fjalla+One&display=swap" rel="stylesheet">  
@@ -166,7 +165,9 @@
                                 <div class="card-body">
                                     <h3 class="card-title"><?php echo $trabajo['nombre_empresa']; ?></h3>
                                     <p class="card-text text-light">Puesto: <?php echo $trabajo['puesto']; ?></p>
-                                    <p class="card-text text-light"><?php echo date('m/Y', strtotime($trabajo['fecha_inicio'])); ?> - <?php echo date('m/Y', strtotime($trabajo['fecha_final'])); ?></p>
+                                    <div x-correct="off" class="card-text text-light">
+                                        <?php echo date('m/Y', strtotime($trabajo['fecha_inicio'])); ?>&nbsp;-&nbsp;<?php echo date('m/Y', strtotime($trabajo['fecha_final'])); ?>
+                                    </div>
                                     <div class="d-flex flex-wrap justify-content-center">
                                         <?php
                                         $tecnologias_seleccionadas = explode(",", $trabajo['tecnologia_id']);
@@ -350,34 +351,30 @@
 
                 <div class="container d-flex justify-content-center mb-5 border border-success rounded-4 bg-nav2 pt-5 mt-4">
                     <div class="border-3 col-8"  >
-                        <form action="enviar.php" method='post' >
-                                <div class="mb-3">
-                                    <input type="text" class="form-control bg-nav2 text-success custom-input" id="name" placeholder="Nombre" required>
-                                    <br>
-                                    <input type="email" class="form-control bg-nav2 text-success custom-input" id="email1" aria-describedby="emailHelp" placeholder="Email" required>
-                                    <br>
-                                    <div id="emailHelp" class="form-text text-white-50">Nunca compartiremos su correo electrónico con nadie más.</div>
-                                </div>
-                                <div class="mb-3">
-                                
-                                    <input type="text" class="form-control bg-nav2 text-success custom-input" id="motivo" placeholder="Motivo" required>
-                                    <br>
-                                    <textarea class="form-control bg-nav2 text-success custom-input" name="contenido" id="contenido" cols="10" rows="5" placeholder="Mensaje" required></textarea>
-                                </div>
-
-                                <div>
-                                    <button type="submit" class="btn btn-light"> Enviar Mail </button>
-                                </div>
-                                <div class="pt-4 text-success">
-                                    <h5>Tambien puedes contactarme por:</h5>
-                                </div>
-                                <div>
-                                    <a href="https://github.com/FrancoAndresMattiazzo"Target="_blank" class="button-hover"><img src="img/png-transparent-github-git-hub-logo-icon-thumbnail.png" width="70" height="70" alt="link github"></a>
-                                    <a href="https://www.linkedin.com/in/franco-andres-mattiazzo-135822185/"Target="_blank" class="pe-2 button-hover"><img src="img/linkedin.svg" width="50" height="50" alt="link github"></a>
-                                    <a  id='WSP'  href="" Target="_blank"class="button-hover"><img src="img/logo-whatsapp.svg" alt="Logo Whatsapp" width="50" height="50"></a>
-                                </div>
-                                
-                                
+                        <form action="enviar.php" method="post" >
+                            <div class="mb-3">
+                                <input type="text" class="form-control bg-nav2 text-success custom-input" id="name" name="nombre" placeholder="Nombre" required>
+                                <br>
+                                <input type="email" class="form-control bg-nav2 text-success custom-input" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Email" required>
+                                <br>
+                                <div id="emailHelp" class="form-text text-white-50">Nunca compartiremos su correo electrónico con nadie más.</div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control bg-nav2 text-success custom-input" id="exampleInputPassword1" name="motivo" placeholder="Motivo" required>
+                                <br>
+                                <textarea class="form-control bg-nav2 text-success custom-input" id="contenido" name="contenido" cols="10" rows="5" placeholder="Mensaje" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-light"> Enviar Mail </button>
+                            </div>
+                            <div class="pt-4 text-success">
+                                <h5>Tambien puedes contactarme por:</h5>
+                            </div>
+                            <div>
+                                <a href="https://github.com/FrancoAndresMattiazzo"Target="_blank" class="button-hover"><img src="img/png-transparent-github-git-hub-logo-icon-thumbnail.png" width="70" height="70" alt="link github"></a>
+                                <a href="https://www.linkedin.com/in/franco-andres-mattiazzo-135822185/"Target="_blank" class="pe-2 button-hover"><img src="img/linkedin.svg" width="50" height="50" alt="link github"></a>
+                                <a id='WSP'  href="" Target="_blank"class="button-hover"><img src="img/logo-whatsapp.svg" alt="Logo Whatsapp" width="50" height="50"></a>
+                            </div>   
                         </form>
                     </div>
                 </div>
@@ -405,6 +402,5 @@
   target: '#navbar-example'
 })
 </script>
- <!--<script src="envio.js"></script>-->
 </body>
 </html>

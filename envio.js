@@ -6,13 +6,9 @@ const MensajeWsp = () => {
   let motivo = document.getElementById("exampleInputPassword1").value;
   let mensajeInput = document.getElementById("contenido").value;
 
-  let mensaje_final =
-    "Hola!,%20Mi%20Nombre%20es:%20" + nombre + ",%20" +
-    "Mi%20Mail%20es:%20" + mail + ",%20" +
-    "El%20Motivo%20de%20mi%20contacto%20es%20" + motivo + ",%20" +
-    "mensaje%20:%20" + mensajeInput;
+  let mensaje_final =""
 
-  let mensaje = "https://api.whatsapp.com/send?phone=34675071107&text=" + encodeURIComponent(mensaje_final);
+  let mensaje = "https://api.whatsapp.com/send?phone=34675071107&text=";
   console.log("Mensaje Final:", mensaje_final);
   console.log("Enlace de WhatsApp:", mensaje);
 
