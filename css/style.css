@@ -1,0 +1,118 @@
+.bg-nav{
+    background-color: rgba(78, 68, 68, 0.7);
+}
+.bg-nav2{
+    background-color: rgba(78, 68, 68, 0.3);
+}
+
+
+ul {
+    list-style: none;
+}
+
+.avatar {
+	width: 150px;
+	height: 150px;
+	box-sizing: border-box;
+	border: 5px white solid;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+	img { width: 100%; height: auto; }
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+
+.linea {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    overflow-x: hidden;
+}
+
+#linea1 {
+    width: 5ch;
+    animation: typing1 2s steps(5), blink1 1s 2s infinite step-end alternate; /* Animación para "Hola!" */
+    animation-fill-mode: forwards;
+}
+
+#linea2 {
+    width: 22ch;
+    opacity: 0;
+    animation: typing2 4s steps(22), blink2 8s 12s infinite step-end alternate; /* Animación para "Soy Franco Mattiazzo" */
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+}
+
+/* Anima el texto simulando una máquina de escribir */
+@keyframes typing1 {
+    from { width: 0; }
+    0% {border-right: 4px solid;}
+    100%{border-right: 4px solid transparent;}
+}
+
+@keyframes typing2 {
+    from { width: 0; }
+    0% {border-right: 4px solid;
+        opacity: 1;}
+    100%{border-right: 4px solid transparent;
+        opacity: 1;
+        width: 100%;}
+    
+}
+
+/* Crea el efecto de parpadeo */
+@keyframes blink1 {
+    50% { border-color: transparent; } /* Cambia el color del borde en el punto medio de la animación */
+}
+
+@keyframes blink2 {
+    50% { border-color: transparent; } /* Cambia el color del borde en el punto medio de la animación */
+}
+
+
+#titulo {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 22ch;
+     /* Asegúrate de que el borde sea transparente inicialmente */
+    animation: typing 4s steps(27), blink .5s step-end alternate;
+  }
+  
+  /* Anima el texto simulando una máquina de escribir */
+  @keyframes typing {
+    from { width: 0; }
+    0% {border-right: 4px solid;}
+    100%{border-right: 4px solid transparent;}
+  }
+  
+  /* Crea el efecto de parpadeo */
+  @keyframes blink {
+    50% { border-color: transparent; } /* Cambia el color del borde en el punto medio de la animación */
+  }
+  
+  .button-hover {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .button-hover:hover {
+    transform: translateY(-5px);
+  }
